@@ -1,0 +1,21 @@
+<button md-fab [mdMenuTriggerFor]="menu">
+  <md-icon>add</md-icon>
+    <md-menu #menu="mdMenu">
+      <button md-menu-item>
+        <md-icon>comment</md-icon>
+        <span>Text</span>
+      </button>
+      <button md-menu-item>
+        <md-icon>crop original</md-icon>
+        <span>Picture</span>
+      </button>
+      <button md-menu-item>
+        <md-icon>lens</md-icon>
+        <span>Button</span>
+        <button md-menu-item disabled>
+          <md-icon>delete</md-icon>
+          <span>Clear All</span>
+        </button>
+      </button>
+    </md-menu>
+</button>
