@@ -1,3 +1,4 @@
+import 'hammerjs';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -7,13 +8,20 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from '@angular/material';
 import { MenuComponent } from './menu/menu.component';
 import { BuilderComponent } from './builder/builder.component';
-import 'hammerjs';
+import { DynamicComponent } from './builder/dynamic/dynamic.component';
+import { HelloWorldComponent } from './hello-world/hello-world.component';
+import { DynamicTextComponent } from './builder/dynamic-text/dynamic-text.component';
+import { DynamicButtonComponent } from './builder/dynamic-button/dynamic-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BuilderComponent,
-    MenuComponent
+    MenuComponent,
+    DynamicComponent,
+    HelloWorldComponent,
+    DynamicTextComponent,
+    DynamicButtonComponent
   ],
   imports: [
     BrowserModule,
