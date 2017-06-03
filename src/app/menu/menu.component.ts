@@ -1,9 +1,9 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { MdButtonModule } from '@angular/material';
-import { MdMenuModule } from '@angular/material';
-import { DynamicTextComponent } from '../builder/dynamic-text/dynamic-text.component';
-import { DynamicButtonComponent } from '../builder/dynamic-button/dynamic-button.component';
-import { DynamicComponent } from '../builder/dynamic/dynamic.component';
+import {Component, Output, EventEmitter} from '@angular/core';
+import {MdButtonModule} from '@angular/material';
+import {MdMenuModule} from '@angular/material';
+import {DynamicTextComponent} from '../builder/dynamic-text/dynamic-text.component';
+import {DynamicButtonComponent} from '../builder/dynamic-button/dynamic-button.component';
+import {DynamicComponent} from '../builder/dynamic/dynamic.component';
 
 @Component({
   selector: 'app-menu',
@@ -12,7 +12,7 @@ import { DynamicComponent } from '../builder/dynamic/dynamic.component';
 })
 export class MenuComponent {
   componentData = null;
-  @Output() onVoted = new EventEmitter<any>();
+  @Output() passData = new EventEmitter<any>(); // any to model refering to this.componentData
 
   createDynamicTextComponentComponent(){
     this.componentData = {
@@ -21,7 +21,7 @@ export class MenuComponent {
         showNum: 9
       }
     };
-    this.onVoted.emit(this.componentData);
+    this.passData.emit(this.componentData);
   }
   createDynamicButtonComponentComponent(){
     this.componentData = {
@@ -30,7 +30,7 @@ export class MenuComponent {
         showNum: 9
       }
     };
-    this.onVoted.emit(this.componentData);
+    this.passData.emit(this.componentData);
   }
   constructor() { }
 }

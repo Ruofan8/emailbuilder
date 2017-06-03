@@ -1,6 +1,6 @@
-import { Component, Input, ViewContainerRef, ViewChild, ReflectiveInjector, ComponentFactoryResolver } from '@angular/core';
-import { DynamicTextComponent } from '../dynamic-text/dynamic-text.component';
-import { DynamicButtonComponent } from '../dynamic-button/dynamic-button.component';
+import {Component, Input, ViewContainerRef, ViewChild, ReflectiveInjector, ComponentFactoryResolver} from '@angular/core';
+import {DynamicTextComponent} from '../dynamic-text/dynamic-text.component';
+import {DynamicButtonComponent} from '../dynamic-button/dynamic-button.component';
 
 @Component({
   selector: 'dynamic-component',
@@ -11,7 +11,7 @@ import { DynamicButtonComponent } from '../dynamic-button/dynamic-button.compone
 })
 export class DynamicComponent {
   currentComponent = null;
-
+  prevComponents = [];
   @ViewChild('dynamicComponentContainer', { read: ViewContainerRef }) dynamicComponentContainer: ViewContainerRef;
 
   // component: Class for the component you want to create
@@ -39,10 +39,12 @@ export class DynamicComponent {
 
     // We can destroy the old component is we like by calling destroy
     if (this.currentComponent) {
+      //TODO: into a different file?
+      this.prevComponents.push(this.currentComponent);
       this.currentComponent.destroy();
     }
-
     this.currentComponent = component;
+    console.log(this.prevComponents)
   }
 
   constructor(private resolver: ComponentFactoryResolver) {

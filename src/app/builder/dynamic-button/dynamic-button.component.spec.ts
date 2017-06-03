@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DynamicButtonComponent } from './dynamic-button.component';
+import {DynamicButtonComponent} from './dynamic-button.component';
 
 describe('DynamicButtonComponent', () => {
   let component: DynamicButtonComponent;

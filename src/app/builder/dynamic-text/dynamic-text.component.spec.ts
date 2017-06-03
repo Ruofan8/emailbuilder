@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DynamicTextComponent } from './dynamic-text.component';
+import {DynamicTextComponent} from './dynamic-text.component';
 
 describe('DynamicTextComponent', () => {
   let component: DynamicTextComponent;

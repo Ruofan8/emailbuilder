@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { HelloWorldComponent } from '../hello-world/hello-world.component';
-import { DynamicComponent } from './dynamic/dynamic.component';
+import {Component, Input} from '@angular/core';
+import {HelloWorldComponent} from '../hello-world/hello-world.component';
+import {DynamicComponent} from './dynamic/dynamic.component';
 
 @Component({
   selector: 'app-builder',
@@ -9,10 +9,12 @@ import { DynamicComponent } from './dynamic/dynamic.component';
 })
 
 export class BuilderComponent {
+  mdTooltipPosition: 'above';
+  @Input() text: string;
   componentData = null;
   agreed = 0;
   disagreed = 0;
-  onVoted(data) {
+  insertData(data) {
     this.componentData = data;
   }
   constructor() { }

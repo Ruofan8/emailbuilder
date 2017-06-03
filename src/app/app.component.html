@@ -7,9 +7,13 @@
     {{tile.text}}
   </md-grid-tile>
 </md-grid-list>
-<md-card>
-  <app-builder></app-builder>
+<md-card *ngFor="let builder of builders; let i = index">
+  <span class="addToTop" (click)="createNewBuilder(i)">Top</span>
+  <app-builder myDraggable dragTarget
+    [text]="builder.text"
+    ></app-builder>
+    <span class="addToBottom" (click)="createNewBuilder(i+1)">Bottom</span>
+
 </md-card>
-<md-card>
-  <app-builder></app-builder>
-</md-card>
+<pre>{{builders | json}}</pre>
+<md-card> show on hover / add new appbuilder on drop</md-card>

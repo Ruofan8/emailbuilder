@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
-import { MdCardModule } from '@angular/material';
-import { MdGridListModule } from '@angular/material';
-
+import {Component} from '@angular/core';
+import {MdCardModule} from '@angular/material';
+import {MdGridListModule} from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -16,4 +15,32 @@ export class AppComponent {
     {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
     {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
   ];
+  //TODO MAKE DYNAMIC SO DRAGGABLE CAN INSERT DATA IN BUILDER IN FORLOOP
+  builders:Array<Object> = [
+    {
+      type: 'text',
+      text: 'Vacatures voor',
+    },
+    {
+      type: 'button',
+      text: 'Picture',
+    },
+    {
+      type: 'button',
+      text: 'Activeren',
+    }
+  ]
+
+  createNewBuilder(index:number) {
+    let array = this.builders,
+    obj = { type: 'text', text: 'empty'};
+    if (index === 0) {
+        array.unshift(obj)
+    } else {
+      console.log(array[index])
+      array.splice(index, 0, obj)
+
+    }
+    this.builders = array;
+  }
 }
