@@ -9,11 +9,11 @@ import {MaterialModule} from '@angular/material';
 import {MenuComponent} from './menu/menu.component';
 import {BuilderComponent} from './builder/builder.component';
 import {DynamicComponent} from './builder/dynamic/dynamic.component';
-import {HelloWorldComponent} from './hello-world/hello-world.component';
 import {DynamicTextComponent} from './builder/dynamic-text/dynamic-text.component';
 import {DynamicButtonComponent} from './builder/dynamic-button/dynamic-button.component';
 import {DraggableDirective} from './directives/draggable.directive';
 import {DragTargetDirective} from './directives/drag-target.directive';
+import { DropTargetsComponent } from './builder/drop-targets/drop-targets.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +21,11 @@ import {DragTargetDirective} from './directives/drag-target.directive';
     BuilderComponent,
     MenuComponent,
     DynamicComponent,
-    HelloWorldComponent,
     DynamicTextComponent,
     DynamicButtonComponent,
     DraggableDirective,
-    DragTargetDirective
+    DragTargetDirective,
+    DropTargetsComponent,
   ],
   imports: [
     BrowserModule,

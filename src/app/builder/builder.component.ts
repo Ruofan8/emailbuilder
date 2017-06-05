@@ -1,5 +1,4 @@
-import {Component, Input} from '@angular/core';
-import {HelloWorldComponent} from '../hello-world/hello-world.component';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {DynamicComponent} from './dynamic/dynamic.component';
 
 @Component({
@@ -9,13 +8,12 @@ import {DynamicComponent} from './dynamic/dynamic.component';
 })
 
 export class BuilderComponent {
-  mdTooltipPosition: 'above';
-  @Input() text: string;
   componentData = null;
-  agreed = 0;
-  disagreed = 0;
+  @Input() text: string;
+  @Output() passData: EventEmitter<any> = new EventEmitter<any>();
+
   insertData(data) {
     this.componentData = data;
+    this.passData.emit(data);
   }
-  constructor() { }
 }

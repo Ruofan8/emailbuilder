@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, Injector} from '@angular/core';
 
 @Component({
   selector: 'app-dynamic-text',
@@ -6,7 +6,4 @@ import {Component} from '@angular/core';
   styleUrls: ['./dynamic-text.component.css']
 })
 export class DynamicTextComponent {
-
-  constructor() { }
-
 }

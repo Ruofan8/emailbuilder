@@ -1,0 +1,10 @@
+.drop-targets {
+  background: red;
+  z-index: 1001;
+  display: block;
+  bottom: -50px;
+}
+
+.drop-targets.active {
+  display: block;
+}

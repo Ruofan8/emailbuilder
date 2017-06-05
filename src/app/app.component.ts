@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {MdCardModule} from '@angular/material';
 import {MdGridListModule} from '@angular/material';
+import {DynamicComponent} from './builder/dynamic/dynamic.component';
 
 @Component({
   selector: 'app-root',
@@ -18,29 +19,29 @@ export class AppComponent {
   //TODO MAKE DYNAMIC SO DRAGGABLE CAN INSERT DATA IN BUILDER IN FORLOOP
   builders:Array<Object> = [
     {
-      type: 'text',
-      text: 'Vacatures voor',
-    },
-    {
-      type: 'button',
-      text: 'Picture',
-    },
-    {
-      type: 'button',
-      text: 'Activeren',
+      type: '',
+      text: '',
     }
   ]
 
   createNewBuilder(index:number) {
     let array = this.builders,
+    //TODO: dynamic items instead of obj
     obj = { type: 'text', text: 'empty'};
     if (index === 0) {
         array.unshift(obj)
     } else {
-      console.log(array[index])
       array.splice(index, 0, obj)
 
     }
     this.builders = array;
+  }
+  insertData(data) {
+    this.builders[0] = data.props;
+  }
+
+  //TODO CREATE NEW ROW WITH INDEX AND ADD NEW ITEM
+  testData(data){
+    console.log(data)
   }
 }

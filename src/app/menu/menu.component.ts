@@ -1,4 +1,4 @@
-import {Component, Output, EventEmitter} from '@angular/core';
+import {Component, Output, EventEmitter, ElementRef} from '@angular/core';
 import {MdButtonModule} from '@angular/material';
 import {MdMenuModule} from '@angular/material';
 import {DynamicTextComponent} from '../builder/dynamic-text/dynamic-text.component';
@@ -17,20 +17,22 @@ export class MenuComponent {
   createDynamicTextComponentComponent(){
     this.componentData = {
       component: DynamicTextComponent,
-      inputs: {
-        showNum: 9
+      props: {
+        type: 'text',
+        text: 'Vacatures voor'
       }
     };
+    console.log(this.componentData)
     this.passData.emit(this.componentData);
   }
   createDynamicButtonComponentComponent(){
     this.componentData = {
       component: DynamicButtonComponent,
-      inputs: {
-        showNum: 9
+      props: {
+        type: 'text',
+        text: 'Vacatures voor'
       }
     };
     this.passData.emit(this.componentData);
   }
-  constructor() { }
 }

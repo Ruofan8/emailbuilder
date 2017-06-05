@@ -15,18 +15,18 @@ export class DynamicComponent {
   @ViewChild('dynamicComponentContainer', { read: ViewContainerRef }) dynamicComponentContainer: ViewContainerRef;
 
   // component: Class for the component you want to create
-  // inputs: An object with key/value pairs mapped to input name/input value
-  @Input() set componentData(data: {component: any, inputs: any }) {
+  // props: An object with key/value pairs mapped to input name/input value
+  @Input() set componentData(data: {component: any, props: any }) {
     if (!data) {
       return;
     }
 
-    // Inputs need to be in the following format to be resolved properly
-    let inputProviders = Object.keys(data.inputs).map((inputName) => {return {provide: inputName, useValue: data.inputs[inputName]};});
-    let resolvedInputs = ReflectiveInjector.resolve(inputProviders);
+    // props need to be in the following format to be resolved properly
+    let inputProviders = Object.keys(data.props).map((inputName) => {return {provide: inputName, useValue: data.props[inputName]};});
+    let resolvedprops = ReflectiveInjector.resolve(inputProviders);
 
     // We create an injector out of the data we want to pass down and this components injector
-    let injector = ReflectiveInjector.fromResolvedProviders(resolvedInputs, this.dynamicComponentContainer.parentInjector);
+    let injector = ReflectiveInjector.fromResolvedProviders(resolvedprops, this.dynamicComponentContainer.parentInjector);
 
     // We create a factory out of the component we want to create
     let factory = this.resolver.resolveComponentFactory(data.component);

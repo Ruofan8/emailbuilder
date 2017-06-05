@@ -13,6 +13,7 @@ export class DraggableDirective {
 
     constructor(private host: ElementRef) {
         host.nativeElement.setAttribute('draggable', 'true');
+        // console.log(host)
     }
 
     onDragStart(ev: DragEvent) {
