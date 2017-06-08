@@ -21,13 +21,14 @@ export class AppComponent {
     {
       type: '',
       text: '',
+      html: '',
     }
   ]
 
-  createNewBuilder(index:number) {
+  createNewBuilder(index:number, data) {
     let array = this.builders,
     //TODO: dynamic items instead of obj
-    obj = { type: 'text', text: 'empty'};
+    obj = { type: '', text: '', html:data};
     if (index === 0) {
         array.unshift(obj)
     } else {
@@ -36,12 +37,14 @@ export class AppComponent {
     }
     this.builders = array;
   }
-  insertData(data) {
-    this.builders[0] = data.props;
+
+  insertData(data: any, i: number) {
+    this.builders[i] = data.props;
   }
 
-  //TODO CREATE NEW ROW WITH INDEX AND ADD NEW ITEM
-  testData(data){
+  getDropTargetData(ev: DragEvent, i:number){
+    let data = ev.dataTransfer.getData('Data')
+    this.createNewBuilder(i, data)
     console.log(data)
   }
 }

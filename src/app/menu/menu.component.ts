@@ -19,18 +19,17 @@ export class MenuComponent {
       component: DynamicTextComponent,
       props: {
         type: 'text',
-        text: 'Vacatures voor'
+        text: 'Text'
       }
     };
-    console.log(this.componentData)
     this.passData.emit(this.componentData);
   }
   createDynamicButtonComponentComponent(){
     this.componentData = {
       component: DynamicButtonComponent,
       props: {
-        type: 'text',
-        text: 'Vacatures voor'
+        type: 'button',
+        text: 'Button'
       }
     };
     this.passData.emit(this.componentData);

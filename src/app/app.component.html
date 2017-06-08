@@ -10,11 +10,12 @@
 <md-card *ngFor="let builder of builders; let i = index">
   <span class="addToTop" (click)="createNewBuilder(i)">Top</span>
   <app-builder myDraggable dragTarget
-    (passData)="insertData($event)"
+    (passData)="insertData($event, i)"
     [text]="builder.text"
     ></app-builder>
+    {{i}}
     <span class="addToBottom" (click)="createNewBuilder(i+1)">Bottom</span>
-    <app-drop-targets (dropTargetData)="testData($event)"></app-drop-targets>
+    <app-drop-targets (dropTargetData)="getDropTargetData($event, i)"></app-drop-targets>
 </md-card>
 <pre>{{builders | json}}</pre>
 <md-card> show on hover / add new appbuilder on drop</md-card>
