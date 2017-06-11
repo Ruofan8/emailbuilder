@@ -1,5 +1,5 @@
 <md-card *ngFor="let builder of builders">
   <h1>
-    {{builder.text}}
+    <dynamic-component [componentData]="componentData"></dynamic-component>
   </h1>
 </md-card>

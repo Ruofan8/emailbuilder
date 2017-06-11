@@ -9,7 +9,9 @@ import { MenuComponent } from './menu/menu.component';
 import { BuilderComponent } from './builder/builder.component';
 import 'hammerjs';
 import { TextComponent } from './builder/text/text.component';
-import { BuilderService} from './builder/builder.service'
+import { BuilderService} from './builder/builder.service';
+import { DynamicComponent } from './builder/dynamic/dynamic.component';
+import { ButtonComponent } from './builder/button/button.component'
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { BuilderService} from './builder/builder.service'
     BuilderComponent,
     MenuComponent,
     TextComponent,
+    DynamicComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,
