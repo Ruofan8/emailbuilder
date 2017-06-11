@@ -8,12 +8,15 @@ import { MaterialModule } from '@angular/material';
 import { MenuComponent } from './menu/menu.component';
 import { BuilderComponent } from './builder/builder.component';
 import 'hammerjs';
+import { TextComponent } from './builder/text/text.component';
+import { BuilderService} from './builder/builder.service'
 
 @NgModule({
   declarations: [
     AppComponent,
     BuilderComponent,
-    MenuComponent
+    MenuComponent,
+    TextComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,7 @@ import 'hammerjs';
     HttpModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [BuilderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
