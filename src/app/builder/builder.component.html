@@ -1,5 +1,10 @@
-<md-card *ngFor="let builder of builders">
+<!-- <md-card *ngFor="let builder of builders">
   <h1>
     <dynamic-component [componentData]="componentData"></dynamic-component>
   </h1>
-</md-card>
+</md-card> -->
+<app-builder-item *ngFor="let builder of builders"
+  [parentTemplate]="builder"
+>
+
+></app-builder-item>

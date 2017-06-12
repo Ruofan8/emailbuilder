@@ -11,7 +11,8 @@ import 'hammerjs';
 import { TextComponent } from './builder/text/text.component';
 import { BuilderService} from './builder/builder.service';
 import { DynamicComponent } from './builder/dynamic/dynamic.component';
-import { ButtonComponent } from './builder/button/button.component'
+import { ButtonComponent } from './builder/button/button.component';
+import { BuilderItemComponent } from './builder/builder-item/builder-item.component'
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ButtonComponent } from './builder/button/button.component'
     TextComponent,
     DynamicComponent,
     ButtonComponent,
+    BuilderItemComponent,
   ],
   imports: [
     BrowserModule,
