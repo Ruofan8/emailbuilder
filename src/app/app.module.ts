@@ -12,7 +12,9 @@ import { TextComponent } from './builder/text/text.component';
 import { BuilderService} from './builder/builder.service';
 import { DynamicComponent } from './builder/dynamic/dynamic.component';
 import { ButtonComponent } from './builder/button/button.component';
-import { BuilderItemComponent } from './builder/builder-item/builder-item.component'
+import { BuilderItemComponent } from './builder/builder-item/builder-item.component';
+import { NoteTopComponent } from './builder/note-top/note-top.component';
+import { LogoComponent } from './builder/logo/logo.component'
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { BuilderItemComponent } from './builder/builder-item/builder-item.compon
     DynamicComponent,
     ButtonComponent,
     BuilderItemComponent,
+    NoteTopComponent,
+    LogoComponent,
   ],
   imports: [
     BrowserModule,

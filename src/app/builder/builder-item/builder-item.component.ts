@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+  import { Component, OnInit, Input } from '@angular/core';
+import { DynamicComponent } from '../dynamic/dynamic.component';
 import { TextComponent } from '../text/text.component';
 import { ButtonComponent } from '../button/button.component';
-import { MdCardModule } from '@angular/material';
-import { DynamicComponent } from '../dynamic/dynamic.component';
+import { NoteTopComponent } from '../note-top/note-top.component';
+import { LogoComponent } from '../logo/logo.component';
 
 @Component({
   selector: 'app-builder-item',
@@ -13,17 +14,15 @@ export class BuilderItemComponent implements OnInit {
   componentData = null;
   @Input('parentTemplate') template: any;
 
-  createTextComponent(template:any){
+  createText(template:any){
     this.componentData = {
       component: TextComponent,
       inputs: {
         text: template.text
       }
     };
-    console.log(this.componentData)
   }
-
-  createButtonComponent(template:any){
+  createButton(template:any){
     this.componentData = {
       component: ButtonComponent,
       inputs: {
@@ -32,16 +31,41 @@ export class BuilderItemComponent implements OnInit {
       }
     };
   }
+  createNoteTop(template:any){
+    this.componentData = {
+      component: NoteTopComponent,
+      inputs: {
+        email_to: template.email_to,
+        email_text: template.email_text,
+        online_text: template.online_text,
+        online_version_url: template.online_version_url
+      }
+    };
+  }
+  createLogo(template:any){
+    this.componentData = {
+      component: LogoComponent,
+      inputs: {
+        website_url: template.website_url,
+        website_logo_url: template.website_logo_url
+      }
+    };
+  }
   constructor() { }
 
   ngOnInit() {
-    console.log(this.template)
     switch(this.template.type) {
       case('text'):
-        this.createTextComponent(this.template);
+        this.createText(this.template);
       break;
       case('button'):
-        this.createButtonComponent(this.template);
+        this.createButton(this.template);
+      break;
+      case('note-top'):
+        this.createNoteTop(this.template);
+      break;
+      case('logo'):
+      this.createLogo(this.template);
       break;
     }
   }

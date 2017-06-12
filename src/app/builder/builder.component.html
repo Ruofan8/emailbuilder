@@ -5,6 +5,5 @@
 </md-card> -->
 <app-builder-item *ngFor="let builder of builders"
   [parentTemplate]="builder"
->
-
 ></app-builder-item>
+<pre>{{ builders | json}}</pre>
