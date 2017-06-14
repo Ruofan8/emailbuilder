@@ -18,7 +18,7 @@ export class BuilderItemComponent implements OnInit {
   @Input('parentTemplate') template: any;
   @Input('parentIndex') index: number;
 
-  clicked():void {
+  modifyTemplate():void {
     let template = this.template,
     arr = [];
     this.status = !this.status;
@@ -46,6 +46,13 @@ export class BuilderItemComponent implements OnInit {
         text: template.text
       }
     };
+  }
+  addRow(type:string, add:boolean){
+    let i = this.index;
+    if (add) {
+        i = i+1
+    }
+    this.service.addRow(i, type);
   }
   createButton(template:any){
     this.componentData = {

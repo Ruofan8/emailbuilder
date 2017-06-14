@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import "./indigo-pink.css"
 .wrapper {
   width: 100%; }
 
@@ -1428,3 +1427,4 @@ td.columns, td.column, th.columns, th.column {
   .social .social-link:last-child {
     padding-left: 11.25px;
     padding-right: 0; }
+    @import "./indigo-pink.css"

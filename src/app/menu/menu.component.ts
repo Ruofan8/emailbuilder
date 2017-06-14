@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { MdButtonModule } from '@angular/material';
-import {MdMenuModule} from '@angular/material';
+import { MdMenuModule } from '@angular/material';
 
 
 @Component({
@@ -8,11 +8,13 @@ import {MdMenuModule} from '@angular/material';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
+  @Output() selectedType = new EventEmitter<string>();
 
-  constructor() { }
-
-  ngOnInit() {
+  selectType(type:string) {
+    console.log(type)
+    this.selectedType.emit(type);
   }
+  constructor() { }
 
 }

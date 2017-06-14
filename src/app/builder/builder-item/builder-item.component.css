@@ -6,7 +6,31 @@
   left: 0;
   right: 0;
   z-index: 1;
+  background-color: white;
 }
 .status.show {
-  display:block
+  display:block;
+}
+.row {
+  position: relative;
+}
+.row:hover .addRow {
+  display: block;
+}
+.addRow {
+  display: none;
+  text-align: center;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,.3);
+  z-index: 1;
+}
+
+.addRow.top {
+  top: -50px;
+}
+.addRow.bottom {
+  bottom: -50px;
 }

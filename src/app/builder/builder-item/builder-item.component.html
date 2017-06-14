@@ -1,6 +1,13 @@
-<dynamic-component (click)="clicked()" [componentData]="componentData"></dynamic-component>
-<pre class="status" [ngClass]="{'show': status}">
-  <input *ngFor="let input of templateData" [(ngModel)]="input.value"/>
-  <button type="button"(click)="update(templateData)">Update</button>
-  <pre style="text-align:left;">{{templateData |json}}</pre>
-</pre>
+<div class="row">
+  <div class="addRow top"><app-menu (selectedType)="addRow($event, false)"></app-menu></div>
+  <dynamic-component (click)="modifyTemplate()" [componentData]="componentData"></dynamic-component>
+  <div class="status" [ngClass]="{'show': status}">
+    <div *ngFor="let input of templateData">
+      <label for="{{input.key}}">{{input.key}}</label>
+      <input id="{{input.key}}" [(ngModel)]="input.value"/>
+      <button type="button"(click)="update(templateData)">Update</button>
+    </div>
+    <!-- <pre style="text-align:left;">{{templateData |json}}</pre> -->
+  </div>
+  <div class="addRow bottom"><app-menu (selectedType)="addRow($event, true)"></app-menu></div>
+</div>
