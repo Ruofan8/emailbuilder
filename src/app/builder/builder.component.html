@@ -3,7 +3,8 @@
     <dynamic-component [componentData]="componentData"></dynamic-component>
   </h1>
 </md-card> -->
-<app-builder-item *ngFor="let builder of builders"
+<app-builder-item *ngFor="let builder of builders;  let i = index;"
   [parentTemplate]="builder"
+  [parentIndex]="i"
 ></app-builder-item>
 <pre>{{ builders | json}}</pre>

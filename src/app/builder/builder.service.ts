@@ -8,7 +8,9 @@ export class BuilderService {
   getTemplate() {
     return Builders;
   }
-
+  changeTemplate(index:number, template:any) {
+    Builders[index] = template;
+  }
 }
 const Builders = [
     {

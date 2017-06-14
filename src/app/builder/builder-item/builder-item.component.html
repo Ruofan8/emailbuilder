@@ -1,1 +1,6 @@
-<dynamic-component [componentData]="componentData"></dynamic-component>
+<dynamic-component (click)="clicked()" [componentData]="componentData"></dynamic-component>
+<pre class="status" [ngClass]="{'show': status}">
+  <input *ngFor="let input of templateData" [(ngModel)]="input.value"/>
+  <button type="button"(click)="update(templateData)">Update</button>
+  <pre style="text-align:left;">{{templateData |json}}</pre>
+</pre>

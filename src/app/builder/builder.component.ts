@@ -10,9 +10,9 @@ import { ButtonComponent } from './button/button.component';
 })
 export class BuilderComponent implements OnInit {
   builders: Array<Object>;
+    
   constructor(private service: BuilderService) { }
   ngOnInit() {
     this.builders = this.service.getTemplate();
   }
-
 }

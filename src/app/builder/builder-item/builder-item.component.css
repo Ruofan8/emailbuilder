@@ -1,0 +1,12 @@
+.status {
+  display:none;
+  position: absolute;
+  margin: auto;
+  text-align: center;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.status.show {
+  display:block
+}
