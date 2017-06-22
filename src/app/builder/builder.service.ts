@@ -4,7 +4,9 @@ import { Injectable } from '@angular/core';
 export class BuilderService {
 
   constructor() {}
-
+  setTemplate(template:any){
+    Builders = template;
+  }
   getTemplate() {
     return Builders;
   }
@@ -28,7 +30,7 @@ export class BuilderService {
       }
   }
 }
-const Builders = [
+var Builders = [
   {
     type: 'note-top',
     email_to: 'jobalert@brunel.net',

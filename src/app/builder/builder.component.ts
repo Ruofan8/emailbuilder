@@ -25,7 +25,8 @@ export class BuilderComponent implements OnInit {
     var myReader:FileReader = new FileReader();
 
     myReader.onloadend = (e) => {
-      this.builders = JSON.parse(myReader.result);
+      this.service.setTemplate(JSON.parse(myReader.result));
+      this.builders = this.service.getTemplate();
     }
 
     myReader.readAsText(file);
