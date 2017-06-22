@@ -14,6 +14,9 @@
 .row {
   position: relative;
 }
+.row:hover {
+  background: rgba(0,0,0,.3);
+}
 .row:hover .addRow {
   display: block;
 }
@@ -22,15 +25,13 @@
   text-align: center;
   position: absolute;
   margin: auto;
-  left: 0;
   right: 0;
-  background: rgba(0,0,0,.3);
   z-index: 1;
 }
 
 .addRow.top {
-  top: -50px;
+  top: -25px;
 }
 .addRow.bottom {
-  bottom: -50px;
+  bottom: -25px;
 }

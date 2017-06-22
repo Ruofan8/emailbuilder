@@ -9,6 +9,7 @@ export class BuilderService {
     return Builders;
   }
   changeTemplate(index:number, template:any) {
+    console.log(template)
     Builders[index] = template;
   }
   addRow(index:number, type:any) {
