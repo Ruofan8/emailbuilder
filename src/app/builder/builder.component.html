@@ -7,6 +7,7 @@
   [parentTemplate]="builder"
   [parentIndex]="i"
 ></app-builder-item>
+<button (click)="exportHTML()">Export HTML</button>
 <button (click)="exportJSON()">Export JSON</button>
 <input type="file" id="myFile" (change)="importJSON($event)">
 

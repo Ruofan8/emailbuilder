@@ -9,6 +9,7 @@ import * as FileSaver from 'file-saver';
   templateUrl: './builder.component.html',
   styleUrls: ['./builder.component.css']
 })
+
 export class BuilderComponent implements OnInit {
   builders: Array<Object>;
 
@@ -16,19 +17,34 @@ export class BuilderComponent implements OnInit {
   ngOnInit() {
     this.builders = this.service.getTemplate();
   }
+  exportHTML()  {
+    var appBuilder:any  = document.querySelectorAll('app-builder')[0].innerHTML
+    var blob = new Blob([appBuilder], {type: "text/plain;charset=utf-8"});
+    //TODO: missing css
+    FileSaver.saveAs(blob, "rendered.html");
+  }
   exportJSON() {
     var blob = new Blob([JSON.stringify(this.builders)], {type: "text/plain;charset=utf-8"});
-    FileSaver.saveAs(blob, "hello world.txt");
+    FileSaver.saveAs(blob, "template.txt");
   }
   importJSON($event) : void {
     var file:File = $event.target.files[0];
     var myReader:FileReader = new FileReader();
 
     myReader.onloadend = (e) => {
-      this.service.setTemplate(JSON.parse(myReader.result));
-      this.builders = this.service.getTemplate();
+      if(this.isJson(myReader.result)){
+        this.service.setTemplate(JSON.parse(myReader.result));
+        this.builders = this.service.getTemplate();
+      } else {
+        alert("Invalid builder JSON")
+      }
     }
 
     myReader.readAsText(file);
+ }
+ isJson(data:any) {
+   return (/^[\],:{}\s]*$/.test(data.replace(/\\["\\\/bfnrtu]/g, '@').
+    replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
+    replace(/(?:^|:|,)(?:\s*\[)+/g, '')))
  }
 }
