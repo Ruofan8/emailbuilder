@@ -1,6 +1,6 @@
 <div class="row">
   <div class="addRow top"><app-menu (selectedType)="addRow($event, false)"></app-menu></div>
-  <dynamic-component (click)="modifyTemplate()" [componentData]="componentData"></dynamic-component>
+  <dynamic-component draggable dragTarget attr.index={{index}} (click)="modifyTemplate()" [componentData]="componentData"></dynamic-component>
   <div class="status" [ngClass]="{'show': status}">
     <div *ngFor="let input of templateData">
       <label for="{{input.key}}">{{input.key}}</label>

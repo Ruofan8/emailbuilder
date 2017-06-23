@@ -4,16 +4,6 @@ import { Injectable } from '@angular/core';
 export class BuilderService {
 
   constructor() {}
-  setTemplate(template:any){
-    Builders = template;
-  }
-  getTemplate() {
-    return Builders;
-  }
-  changeTemplate(index:number, template:any) {
-    console.log(template)
-    Builders[index] = template;
-  }
   addRow(index:number, type:any) {
     let foundTemplate;
     Object.keys(Types).forEach( (key) => {
@@ -28,6 +18,21 @@ export class BuilderService {
       } else {
         Builders.splice(index, 0, foundTemplate)
       }
+  }
+  changeTemplate(index:number, template:any) {
+    console.log(template)
+    Builders[index] = template;
+  }
+  repositionTemplate(sourceIndex:number, targetIndex) {
+    var sourceTemplate = Builders[sourceIndex];
+    Builders.splice(sourceIndex, 1);
+    Builders.splice(targetIndex, 0, sourceTemplate)
+  }
+  getTemplate() {
+    return Builders;
+  }
+  setTemplate(template:any){
+    Builders = template;
   }
 }
 var Builders = [

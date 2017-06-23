@@ -83,6 +83,7 @@ export class BuilderItemComponent implements OnInit {
       }
     };
   }
+
   constructor(private service: BuilderService) { }
 
   ngOnInit() {
@@ -99,6 +100,7 @@ export class BuilderItemComponent implements OnInit {
       case('logo'):
       this.createLogo(this.template);
       break;
+      default:
     }
   }
 

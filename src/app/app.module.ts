@@ -14,7 +14,9 @@ import { DynamicComponent } from './builder/dynamic/dynamic.component';
 import { ButtonComponent } from './builder/button/button.component';
 import { BuilderItemComponent } from './builder/builder-item/builder-item.component';
 import { NoteTopComponent } from './builder/note-top/note-top.component';
-import { LogoComponent } from './builder/logo/logo.component'
+import { LogoComponent } from './builder/logo/logo.component';
+import { DragTargetDirective } from './directives/drag-target.directive';
+import { DraggableDirective } from './directives/draggable.directive';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { LogoComponent } from './builder/logo/logo.component'
     BuilderItemComponent,
     NoteTopComponent,
     LogoComponent,
+    DragTargetDirective,
+    DraggableDirective,
   ],
   imports: [
     BrowserModule,
