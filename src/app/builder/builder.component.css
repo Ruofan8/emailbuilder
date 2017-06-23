@@ -1,0 +1,20 @@
+#open-nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+#open-nav #line{
+  background: rgba(0,0,0,.38);
+  width: 1px;
+  position: fixed;
+  right: 0;
+  margin-right:0;
+  height: 100%;
+  transition: all .22s 0s ease-in;
+}
+#open-nav:hover  #line{
+  width: 10px;
+  /*transition: width .22s 0s ease-in;*/
+
+}

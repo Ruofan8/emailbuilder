@@ -3,8 +3,7 @@
   <dynamic-component draggable dragTarget attr.index={{index}} (click)="modifyTemplate()" [componentData]="componentData"></dynamic-component>
   <div class="status" [ngClass]="{'show': status}">
     <div *ngFor="let input of templateData">
-      <label for="{{input.key}}">{{input.key}}</label>
-      <input id="{{input.key}}" [(ngModel)]="input.value"/>
+      <textarea id="{{input.key}}" [(ngModel)]="input.value"></textarea>
       <button type="button"(click)="update(templateData)">Update</button>
     </div>
     <!-- <pre style="text-align:left;">{{templateData |json}}</pre> -->

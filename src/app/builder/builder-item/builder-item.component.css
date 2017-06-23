@@ -35,3 +35,7 @@
 .addRow.bottom {
   bottom: -25px;
 }
+
+textarea {
+  width: 400px;
+}

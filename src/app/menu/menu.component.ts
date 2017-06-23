@@ -12,7 +12,6 @@ export class MenuComponent {
   @Output() selectedType = new EventEmitter<string>();
 
   selectType(type:string) {
-    console.log(type)
     this.selectedType.emit(type);
   }
   constructor() { }

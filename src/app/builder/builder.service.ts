@@ -8,7 +8,6 @@ export class BuilderService {
     let foundTemplate;
     Object.keys(Types).forEach( (key) => {
       let value = Types[key];
-      console.log(Types[key])
       if (Types[key].type === type) {
           foundTemplate = Types[key];
       }

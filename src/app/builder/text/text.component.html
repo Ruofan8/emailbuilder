@@ -1,20 +1,58 @@
-<table align="center" class="container border-bottom float-center">
+<table align="center" class="container float-center">
   <tbody>
     <tr>
       <td>
+        <table class="spacer">
+          <tbody>
+            <tr>
+              <td height="15px" style="font-size:15px;line-height:15px;">&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
         <table class="row">
           <tbody>
             <tr>
               <th class="small-12 large-12 columns first last">
                 <table>
-                  <tr>
-                    <th>
-                      <p class=" ">{{text}}</p>
-                    </th>
-                    <th class="expander"></th>
-                  </tr>
+                  <tbody>
+                    <tr>
+                      <th>
+                        <p class="text-center">
+                          {{text}}
+                          <!--
+                          You will start receiving
+                          {{#if is_online}}
+                            <span style="font-weight: bold;">{{Frequency}} </span>
+                            Job Alerts
+                            {{#if Query}}
+                            for <span style="font-weight: bold;">{{Query}} </span>
+                            {{/if}}
+                            {{#if Location}}
+                            in <span style="font-weight: bold;">{{Location}} {{Range}} </span>
+                            {{/if}}
+                          {{else}}
+                            {{Frequency}} Job Alerts
+                            {{#if Query}}
+                              for {{Query}}
+                            {{/if}}
+                            {{#if Location}}
+                              in {{Location}} {{Range}}.
+                            {{/if}}
+                          {{/if}}
+                           -->
+                      </th>
+                      <th class="expander"></th>
+                    </tr>
+                  </tbody>
                 </table>
               </th>
+            </tr>
+          </tbody>
+        </table>
+        <table class="spacer">
+          <tbody>
+            <tr>
+              <td height="15px" style="font-size:15px;line-height:15px;">&nbsp;</td>
             </tr>
           </tbody>
         </table>

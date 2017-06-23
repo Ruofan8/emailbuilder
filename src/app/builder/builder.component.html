@@ -1,14 +1,28 @@
-<!-- <md-card *ngFor="let builder of builders">
-  <h1>
-    <dynamic-component [componentData]="componentData"></dynamic-component>
-  </h1>
-</md-card> -->
-<app-builder-item *ngFor="let builder of builders;  let i = index;"
-  [parentTemplate]="builder"
-  [parentIndex]="i"
-></app-builder-item>
-<button (click)="exportHTML()">Export HTML</button>
-<button (click)="exportJSON()">Export JSON</button>
-<input type="file" id="myFile" (change)="importJSON($event)">
+<md-sidenav-container>
+  <md-sidenav #sidenav class="example-sidenav" align="end">
+    <md-list>
+      <md-list-item>
+        <h3>Form Controls</h3>
+      </md-list-item>
+      <md-list-item>
+        <a (click)="exportHTML()">Export HTML</a>
+      </md-list-item>
+      <md-list-item>
+        <a (click)="exportJSON()">Export JSON</a>
+      </md-list-item>
+      <md-list-item>
+        <input type="file" id="myFile" (change)="importJSON($event)">
+      </md-list-item>
+    </md-list>
+  </md-sidenav>
+  <app-builder-item *ngFor="let builder of builders;  let i = index;"
+    [parentTemplate]="builder"
+    [parentIndex]="i"
+  ></app-builder-item>
 
-<pre>{{ builders | json}}</pre>
+  <pre>{{ builders | json}}</pre>
+  <button type="button" md-button (click)="sidenav.open()" id="open-nav">
+    <span id="line"></span>
+    <md-icon>keyboard_arrow_left</md-icon>
+  </button>
+</md-sidenav-container>
