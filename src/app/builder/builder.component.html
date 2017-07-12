@@ -20,7 +20,9 @@
     [parentIndex]="i"
   ></app-builder-item>
 
+  <pre>{{ mandrilTemplatesList | json}}</pre>
   <pre>{{ builders | json}}</pre>
+
   <button type="button" md-button (click)="sidenav.open()" id="open-nav">
     <span id="line"></span>
     <md-icon>keyboard_arrow_left</md-icon>

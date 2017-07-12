@@ -13,6 +13,7 @@ import mandrill from 'mandrill-api/mandrill';
 export class BuilderComponent implements OnInit {
   builders: Array<Object>;
   buildersString: string;
+  mandrilTemplatesList: Array<object>;
 
   constructor(private service: BuilderService) {  }
   ngOnInit() {
@@ -23,9 +24,15 @@ export class BuilderComponent implements OnInit {
       name: 'JobAlert Activation - BE',
       text: this.buildersString
     };
-    mandrill_client.templates.update(template, function(result) {
-        console.log(result);
-    });
+    const _this = this;
+    // mandrill_client.templates.update(template, function(result) {
+    //     console.log(result);
+    // });
+
+    mandrill_client.templates.list({label: 'jobalert'}, function(result) {
+      console.log(result)
+      _this.mandrilTemplatesList = result;
+    })
   }
   exportHTML()  {
     const appBuilder:any  = document.querySelectorAll('app-builder')[0].innerHTML
