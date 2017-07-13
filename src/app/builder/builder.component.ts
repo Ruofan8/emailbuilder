@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BuilderService} from './builder.service'
 import { TextComponent } from './text/text.component';
 import { ButtonComponent } from './button/button.component';
+import { LinkComponent } from './link/link.component';
 import * as FileSaver from 'file-saver';
 import mandrill from 'mandrill-api/mandrill';
 @Component({
@@ -18,21 +19,22 @@ export class BuilderComponent implements OnInit {
   constructor(private service: BuilderService) {  }
   ngOnInit() {
     this.builders = this.service.getTemplate();
-    this.buildersString = JSON.stringify(this.builders);
-    const mandrill_client = new mandrill.Mandrill('PS9odNH5RBfJUncs07L3gA');
-    const template = {
-      name: 'JobAlert Activation - BE',
-      text: this.buildersString
-    };
-    const _this = this;
+    // this.buildersString = JSON.stringify(this.builders);
+    // const mandrill_client = new mandrill.Mandrill('PS9odNH5RBfJUncs07L3gA');
+    // const template = {
+    //   name: 'JobAlert Activation - BE',
+    //   text: this.buildersString
+    // };
+    // const _this = this;
     // mandrill_client.templates.update(template, function(result) {
     //     console.log(result);
     // });
 
-    mandrill_client.templates.list({label: 'jobalert'}, function(result) {
-      console.log(result)
-      _this.mandrilTemplatesList = result;
-    })
+    // mandrill_client.templates.list({label: 'jobalert'}, function(result) {
+    //   console.log(result)
+    //   _this.mandrilTemplatesList = result;
+    // })
+    this.mandrilTemplatesList = this.service.getMandrillTemplate();
   }
   exportHTML()  {
     const appBuilder:any  = document.querySelectorAll('app-builder')[0].innerHTML

@@ -3,10 +3,11 @@ import { TextComponent } from '../text/text.component';
 import { ButtonComponent } from '../button/button.component';
 import { NoteTopComponent } from '../note-top/note-top.component';
 import { LogoComponent } from '../logo/logo.component';
+import { LinkComponent } from '../link/link.component';
 
 @Component({
   selector: 'dynamic-component',
-  entryComponents: [TextComponent, ButtonComponent, NoteTopComponent, LogoComponent], // Reference to the components must be here in order to dynamically create them
+  entryComponents:  [TextComponent, ButtonComponent, NoteTopComponent, LogoComponent, LinkComponent], // Reference to the components must be here in order to dynamically create them
   template: `
     <div #dynamicComponentContainer></div>
   `,

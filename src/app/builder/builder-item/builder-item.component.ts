@@ -4,14 +4,15 @@ import { TextComponent } from '../text/text.component';
 import { ButtonComponent } from '../button/button.component';
 import { NoteTopComponent } from '../note-top/note-top.component';
 import { LogoComponent } from '../logo/logo.component';
-import { BuilderService } from '../builder.service'
+import { LinkComponent } from '../link/link.component';
+import { BuilderService } from '../builder.service';
 
 @Component({
   selector: 'app-builder-item',
   templateUrl: './builder-item.component.html',
   styleUrls: ['./builder-item.component.css']
 })
-export class BuilderItemComponent implements OnInit {
+export class BuilderItemComponent {
   componentData = null;
   templateData = null;
   status = false;
@@ -39,6 +40,13 @@ export class BuilderItemComponent implements OnInit {
     this.service.changeTemplate(i, obj)
 
   }
+  addRow(type:string, add:boolean){
+    let i = this.index;
+    if (add) {
+        i = i+1
+    }
+    this.service.addRow(i, type);
+  }
   createText(template:any){
     this.componentData = {
       component: TextComponent,
@@ -46,13 +54,6 @@ export class BuilderItemComponent implements OnInit {
         text: template.text
       }
     };
-  }
-  addRow(type:string, add:boolean){
-    let i = this.index;
-    if (add) {
-        i = i+1
-    }
-    this.service.addRow(i, type);
   }
   createButton(template:any){
     this.componentData = {
@@ -83,7 +84,17 @@ export class BuilderItemComponent implements OnInit {
       }
     };
   }
-
+  createLink(template:any){
+    this.componentData = {
+      component: LinkComponent,
+      inputs: {
+        unsubscribe_text: template.unsubscribe_text,
+        unsubscribe_url: template.unsubscribe_url,
+        why_brunel_text: template.why_brunel_text,
+        why_brunel_url: template.why_brunel_url
+      }
+    };
+  }
   constructor(private service: BuilderService) { }
 
   ngOnInit() {
@@ -99,6 +110,9 @@ export class BuilderItemComponent implements OnInit {
       break;
       case('logo'):
       this.createLogo(this.template);
+      break;
+      case('link'):
+      this.createLink(this.template);
       break;
       default:
     }

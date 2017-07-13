@@ -17,6 +17,7 @@ import { NoteTopComponent } from './builder/note-top/note-top.component';
 import { LogoComponent } from './builder/logo/logo.component';
 import { DragTargetDirective } from './directives/drag-target.directive';
 import { DraggableDirective } from './directives/draggable.directive';
+import { LinkComponent } from './builder/link/link.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { DraggableDirective } from './directives/draggable.directive';
     LogoComponent,
     DragTargetDirective,
     DraggableDirective,
+    LinkComponent,
   ],
   imports: [
     BrowserModule,
